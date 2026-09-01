@@ -12,3 +12,4 @@ Devil May Cry (Dante): estilo de protagonista.
 
 Blasphemous II: referência de combate, inimigos e ambientação.
 
+Persona 5: estilo dos personagens e vibe dos dialogos.
