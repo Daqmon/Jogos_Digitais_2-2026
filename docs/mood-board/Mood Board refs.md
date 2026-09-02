@@ -8,7 +8,7 @@ Bloodstained Ritual of the Night: design de mapa, inimigos e combate.
 
 Silent Hill: design de inimigos e ambientação.
 
-Devil May Cry (Dante): estilo de protagonista.
+Devil May Cry (Dante): estilo de protagonista e combate.
 
 Blasphemous II: referência de combate, inimigos e ambientação.
 
