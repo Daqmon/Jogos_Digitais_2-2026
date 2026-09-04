@@ -48,15 +48,14 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_2fjfn")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=511920713]
-position = Vector2(215.77959, 239.85487)
+position = Vector2(212.00002, 246.00002)
 rotation = -2.0943952
-scale = Vector2(2.0147443, 3.9926064)
+scale = Vector2(2.223098, 4.391864)
 texture = SubResource("GradientTexture2D_q1eoi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4" unique_id=203060803]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/StaticBody2D" unique_id=891261079]
-scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_2fjfn")
 
 [node name="Player" parent="." unique_id=1800775826 instance=ExtResource("1_rupst")]

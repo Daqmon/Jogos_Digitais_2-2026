@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+@export var move_speed : float = 100
+
 var states : Array[ PlayerState ]
 var current_state : PlayerState :
 	get : return states[ 0 ]
@@ -12,6 +14,7 @@ var gravity : float = 980
 func _ready() -> void:
 	initilize_states()
 
+# Runs everytime a button is pressed (and the input is not consumed by UI)
 func _unhandled_input(event: InputEvent) -> void:
 	change_state( current_state.handle_input( event ) )
 
@@ -39,6 +42,7 @@ func initilize_states() -> void:
 		state.init()
 
 	current_state.enter()
+	$Label.text = current_state.name
 		
 func change_state( new_state : PlayerState ) -> void:
 	if new_state == null:
@@ -52,9 +56,13 @@ func change_state( new_state : PlayerState ) -> void:
 	states.push_front( new_state )
 	current_state.enter()
 	states.resize( 3 )
+	$Label.text = current_state.name
 	
+# This treatment is done outside of _unhandled_input because it needs constant checking
 func update_direction() -> void:
 	var prev_direction : Vector2 = direction
 	
-	direction = Input.get_vector( "left", "right", "up", "down" )
+	var x_axis = Input.get_axis( "Left", "Right" )
+	var y_axis = Input.get_axis( "Up", "Down" )
+	direction = Vector2(x_axis, y_axis)
 	
