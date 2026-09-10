@@ -25,5 +25,6 @@ func physics_process( _delta : float ) -> PlayerState:
 		return idle
 	elif player.velocity.y >= 0:
 		return fall
+		
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
