@@ -1,12 +1,16 @@
 class_name PlayerStateFall extends PlayerState
 
+@export var fall_gravity_multiplier : float = 1.2
+
 func init() -> void:
 	pass
 	
 func enter() -> void:
+	player.gravity_multiplier = fall_gravity_multiplier
 	pass
 	
 func exit() -> void:
+	player.gravity_multiplier = 1.0
 	pass
 	
 func handle_input( _event : InputEvent ) -> PlayerState:
