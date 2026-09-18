@@ -4,13 +4,20 @@ func init() -> void:
 	pass
 	
 func enter() -> void:
+	if player.previous_state == crouch:
+		player.animation_player.play_backwards("crouch")
+		await player.animation_player.animation_finished
+		if player.current_state != self:
+			return
+			
+	player.animation_player.play( "idle" )
 	pass
 	
 func exit() -> void:
 	pass
 	
 func handle_input( _event : InputEvent ) -> PlayerState:
-	if _event.is_action_pressed( "Jump" ):
+	if _event.is_action_pressed( "jump" ):
 		return jump
 	return next_state
 	

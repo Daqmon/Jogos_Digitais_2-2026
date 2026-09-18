@@ -4,13 +4,14 @@ func init() -> void:
 	pass
 	
 func enter() -> void:
+	player.animation_player.play( "run" )
 	pass
 	
 func exit() -> void:
 	pass
 	
 func handle_input( _event : InputEvent ) -> PlayerState:
-	if _event.is_action_pressed( "Jump" ):
+	if _event.is_action_pressed( "jump" ):
 		return jump
 	return next_state
 	

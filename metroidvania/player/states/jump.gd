@@ -6,14 +6,14 @@ func init() -> void:
 	pass
 	
 func enter() -> void:
+	player.animation_player.play( "jump" )
 	player.velocity.y = -jump_velocity
-	pass
 	
 func exit() -> void:
 	pass
 	
 func handle_input( event : InputEvent ) -> PlayerState:
-	if event.is_action_released("Jump"):
+	if event.is_action_released("jump"):
 		player.velocity.y *= 0.5
 	return next_state
 	

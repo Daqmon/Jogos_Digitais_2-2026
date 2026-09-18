@@ -3,7 +3,8 @@ class_name Player extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d_stand: CollisionShape2D = $CollisionShape2DStand
 @onready var collision_shape_2d_crouch: CollisionShape2D = $CollisionShape2DCrouch
-@onready var one_way_platform_ray_cast_2d: RayCast2D = $OneWayPlatformRayCast2D
+@onready var one_way_platform_shape_cast: ShapeCast2D = $OneWayPlatformShapeCast
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var move_speed : float = 100
 
@@ -68,7 +69,13 @@ func change_state( new_state : PlayerState ) -> void:
 func update_direction() -> void:
 	var prev_direction : Vector2 = direction
 	
-	var x_axis = Input.get_axis( "Left", "Right" )
-	var y_axis = Input.get_axis( "Up", "Down" )
+	var x_axis = Input.get_axis( "left", "right" )
+	var y_axis = Input.get_axis( "up", "down" )
 	direction = Vector2(x_axis, y_axis)
+	
+	if prev_direction.x != direction.x:
+		if direction.x < 0:
+			sprite_2d.flip_h = true
+		elif direction.x > 0:
+			sprite_2d.flip_h = false
 	

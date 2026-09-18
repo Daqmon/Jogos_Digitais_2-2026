@@ -7,7 +7,6 @@ func init() -> void:
 	
 func enter() -> void:
 	player.gravity_multiplier = fall_gravity_multiplier
-	pass
 	
 func exit() -> void:
 	player.gravity_multiplier = 1.0
