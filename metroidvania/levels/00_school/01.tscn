@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://b8qt4r83mpkup" path="res://levels/tilesets/school.tres" id="1_ka5bn"]
 [ext_resource type="PackedScene" uid="uid://dd0te187ig2kn" path="res://player/player.tscn" id="2_70d84"]
+[ext_resource type="Script" uid="uid://cax6h4e3s120g" path="res://general/scripts/level_bounds.gd" id="3_6popj"]
 
 [node name="01" type="Node2D" unique_id=1553462891]
 
@@ -11,3 +12,9 @@ tile_set = ExtResource("1_ka5bn")
 
 [node name="Player" parent="." unique_id=1800775826 instance=ExtResource("2_70d84")]
 position = Vector2(111, 137)
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=641135740]
+position = Vector2(-32, 0)
+script = ExtResource("3_6popj")
+width = 544
+metadata/_custom_type_script = "uid://cax6h4e3s120g"
