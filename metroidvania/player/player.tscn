@@ -34,7 +34,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_boad6"]
 resource_name = "Crouch"
-length = 0.19999999999999998
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -108,6 +108,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1800775826]
+z_index = 1
 collision_layer = 4
 collision_mask = 3
 floor_max_angle = 0.87266463
@@ -173,3 +174,6 @@ collision_mask = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=752445672]
 libraries/ = SubResource("AnimationLibrary_ebec5")
 autoplay = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=666719124]
+position = Vector2(0, -38)
