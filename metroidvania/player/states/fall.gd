@@ -15,6 +15,8 @@ func exit() -> void:
 	pass
 	
 func handle_input( _event : InputEvent ) -> PlayerState:
+	if _event.is_action_pressed( "attack" ):
+		return attack
 	return next_state
 	
 func process( _delta : float ) -> PlayerState:

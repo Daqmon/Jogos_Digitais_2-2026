@@ -1,10 +1,13 @@
 class_name Player extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var attack_sprite_2d: Sprite2D = %AttackSprite2D
+
 @onready var collision_shape_2d_stand: CollisionShape2D = $CollisionShape2DStand
 @onready var collision_shape_2d_crouch: CollisionShape2D = $CollisionShape2DCrouch
 @onready var one_way_platform_shape_cast: ShapeCast2D = $OneWayPlatformShapeCast
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var attack_area: AttackArea = %AttackArea
 
 @export var move_speed : float = 100
 @export var max_fall_velocity : float = 600.0
@@ -24,6 +27,8 @@ func _ready() -> void:
 
 # Runs everytime a button is pressed (and the input is not consumed by UI)
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released( "jump" ):
+		velocity.y *= 0.5
 	change_state( current_state.handle_input( event ) )
 
 func _process( _delta: float ) -> void:
@@ -76,8 +81,13 @@ func update_direction() -> void:
 	direction = Vector2(x_axis, y_axis)
 	
 	if prev_direction.x != direction.x:
+		attack_area.flip( direction.x )
 		if direction.x < 0:
 			sprite_2d.flip_h = true
+			attack_sprite_2d.flip_h = true
+			attack_sprite_2d.position.x = -24
 		elif direction.x > 0:
 			sprite_2d.flip_h = false
+			attack_sprite_2d.flip_h = false
+			attack_sprite_2d.position.x = 24
 	
