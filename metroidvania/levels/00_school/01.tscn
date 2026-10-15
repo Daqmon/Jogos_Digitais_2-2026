@@ -3,8 +3,6 @@
 [ext_resource type="TileSet" uid="uid://b8qt4r83mpkup" path="res://levels/tilesets/school.tres" id="1_ka5bn"]
 [ext_resource type="PackedScene" uid="uid://dd0te187ig2kn" path="res://player/player.tscn" id="2_70d84"]
 [ext_resource type="Script" uid="uid://cax6h4e3s120g" path="res://general/scripts/level_bounds.gd" id="3_6popj"]
-[ext_resource type="Script" uid="uid://dfxiyvst84wql" path="res://general/scripts/attack_area.gd" id="4_pes0c"]
-[ext_resource type="Script" uid="uid://dqqepvvj26hg" path="res://general/scripts/damage_area.gd" id="5_ls6ie"]
 
 [node name="01" type="Node2D" unique_id=1553462891]
 
@@ -30,15 +28,3 @@ position = Vector2(-32, -18)
 script = ExtResource("3_6popj")
 width = 800
 metadata/_custom_type_script = "uid://cax6h4e3s120g"
-
-[node name="AttackArea" type="Area2D" parent="." unique_id=1389810884]
-collision_layer = 0
-collision_mask = 96
-script = ExtResource("4_pes0c")
-metadata/_custom_type_script = "uid://dfxiyvst84wql"
-
-[node name="DamageArea" type="Area2D" parent="." unique_id=622345126]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("5_ls6ie")
-metadata/_custom_type_script = "uid://dqqepvvj26hg"
