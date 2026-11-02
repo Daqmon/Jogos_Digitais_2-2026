@@ -4,6 +4,7 @@ class_name PlayerStateAttack extends PlayerState
 @export var speed : float = 75.0
 var timer : float = 0
 var combo : int = 0
+var attack_anims : Array[String] = [ "attack", "attack_2", "attack_3" ]
 
 @onready var attack_sprite_2d : Sprite2D = %AttackSprite2D
 
@@ -38,15 +39,12 @@ func physics_process( _delta : float ) -> PlayerState:
 	return null
 	
 func do_attack() -> void:
-	var anim_name : String = "attack"
-	if combo > 0:
-		anim_name = "attack_2"
-	player.animation_player.play( anim_name )
+	player.animation_player.play( attack_anims[ combo ] )
 	player.attack_area.activate()
 
 func _end_attack() -> void:
 	if timer > 0:
-		combo = wrapi( combo + 1, 0, 2 )
+		combo = wrapi( combo + 1, 0, attack_anims.size() )
 		do_attack()
 	else :
 		next_state = idle
