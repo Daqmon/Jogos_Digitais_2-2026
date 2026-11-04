@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://b4es0gx8h67nj" path="res://player/states/jump.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://ccmjkdqeriwv4" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://c3bnlqwagpjw5" path="res://player/states/attack.gd" id="6_hg6s5"]
+[ext_resource type="Script" path="res://player/states/dead.gd" id="14_dead"]
+[ext_resource type="Script" path="res://general/scripts/health.gd" id="15_health"]
+[ext_resource type="Script" path="res://general/scripts/damage_area.gd" id="16_damage"]
+[ext_resource type="PackedScene" path="res://hud/hud.tscn" id="17_hud"]
 [ext_resource type="Texture2D" uid="uid://dv605bu0umkex" path="res://player/sprites/mc_jump-Sheet.png" id="8_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://b570aph01plnv" path="res://player/sprites/mc_attack_chain01-Sheet.png" id="8_8t03j"]
 [ext_resource type="Texture2D" uid="uid://ch6hsh48npqpm" path="res://player/sprites/mc_iddle-Sheet v2.png" id="8_ebec5"]
@@ -472,6 +476,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6s5"]
 size = Vector2(59, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hurtbox"]
+size = Vector2(14, 42)
+
 [node name="Player" type="CharacterBody2D" unique_id=1800775826]
 z_index = 1
 collision_layer = 4
@@ -505,6 +512,10 @@ script = ExtResource("5_g6k8r")
 [node name="Attack" type="Node" parent="States" unique_id=1454175140]
 unique_name_in_owner = true
 script = ExtResource("6_hg6s5")
+
+[node name="Dead" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("14_dead")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1760834097]
 position = Vector2(0, -39)
@@ -563,3 +574,23 @@ metadata/_custom_type_script = "uid://dfxiyvst84wql"
 position = Vector2(29.5, 16)
 shape = SubResource("RectangleShape2D_hg6s5")
 debug_color = Color(0.9978052, 0, 0.16799772, 0.41960785)
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("15_health")
+max_health = 5
+
+[node name="DamageArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -22.5)
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("16_damage")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("RectangleShape2D_hurtbox")
+debug_color = Color(0.2, 0.8, 0.3, 0.4)
+
+[node name="HUD" parent="." instance=ExtResource("17_hud")]
+unique_name_in_owner = true

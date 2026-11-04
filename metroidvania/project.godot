@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Metroidvania"
-run/main_scene="uid://d2akljc6blx44"
+config/name="Skull's Out!!!"
+run/main_scene="res://ui/main_menu.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
