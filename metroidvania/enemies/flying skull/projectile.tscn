@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dy067j0vsk2gg"]
+
+[ext_resource type="Script" uid="uid://dlbc77tgsyfki" path="res://enemies/flying skull/projectile.gd" id="1_8tbkt"]
+[ext_resource type="Texture2D" uid="uid://b4wrg6mr05ef1" path="res://enemies/flying skull/sprites/flying skull-projectile.png" id="1_idhr5"]
+[ext_resource type="Script" uid="uid://dfxiyvst84wql" path="res://general/scripts/attack_area.gd" id="3_6jxtp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tbkt"]
+atlas = ExtResource("1_idhr5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jxtp"]
+atlas = ExtResource("1_idhr5")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h02t8"]
+atlas = ExtResource("1_idhr5")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf366"]
+atlas = ExtResource("1_idhr5")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xsp2"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8tbkt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6jxtp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_h02t8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cf366")
+}],
+"loop": 1,
+"name": &"bulletAnimation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsp2"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4yy2"]
+size = Vector2(4.75, 4.75)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1245319031]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_8tbkt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1833361961]
+position = Vector2(-52, -56)
+sprite_frames = SubResource("SpriteFrames_0xsp2")
+animation = &"bulletAnimation"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=671198609]
+shape = SubResource("RectangleShape2D_0xsp2")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=492521743]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_6jxtp")
+metadata/_custom_type_script = "uid://dfxiyvst84wql"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1734489326]
+position = Vector2(0.375, -0.375)
+shape = SubResource("RectangleShape2D_y4yy2")

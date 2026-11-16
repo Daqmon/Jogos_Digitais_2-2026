@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://cb7187calto1q"]
+
+[ext_resource type="Script" uid="uid://bllruofnd0ykg" path="res://enemies/flying skull/flying_skull.gd" id="1_p7fin"]
+[ext_resource type="Texture2D" uid="uid://nmj2wklep247" path="res://enemies/flying skull/sprites/flying skull-idle.png" id="1_p8unj"]
+[ext_resource type="Texture2D" uid="uid://cy1gir767x6s5" path="res://enemies/flying skull/sprites/flying skull-attack.png" id="1_v4f48"]
+[ext_resource type="Texture2D" uid="uid://r7olkkgrcy88" path="res://enemies/flying skull/sprites/flying skull-death.png" id="2_p7fin"]
+[ext_resource type="PackedScene" uid="uid://dy067j0vsk2gg" path="res://enemies/flying skull/projectile.tscn" id="5_fn4hm"]
+[ext_resource type="Script" uid="uid://dqqepvvj26hg" path="res://general/scripts/damage_area.gd" id="6_oawfk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l48v4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn4hm"]
+atlas = ExtResource("1_v4f48")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oawfk"]
+atlas = ExtResource("1_v4f48")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q7gy"]
+atlas = ExtResource("1_v4f48")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ibgs"]
+atlas = ExtResource("1_v4f48")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xekk4"]
+atlas = ExtResource("1_v4f48")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhyng"]
+atlas = ExtResource("1_v4f48")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd6g3"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56pqb"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkdsj"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qug"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxumr"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b3mh"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jg2d"]
+atlas = ExtResource("2_p7fin")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coayg"]
+atlas = ExtResource("1_p8unj")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43cna"]
+atlas = ExtResource("1_p8unj")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ifhk"]
+atlas = ExtResource("1_p8unj")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycc6y"]
+atlas = ExtResource("1_p8unj")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0y87"]
+atlas = ExtResource("1_p8unj")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4bd4"]
+atlas = ExtResource("1_p8unj")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xsp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn4hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oawfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q7gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ibgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xekk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhyng")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_yd6g3")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_56pqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkdsj")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_85qug")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uxumr")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_2b3mh")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_4jg2d")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coayg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43cna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ifhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycc6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0y87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4bd4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsp2"]
+size = Vector2(17.25, 18)
+
+[node name="flyingSkull" type="CharacterBody2D" unique_id=289477857 groups=["enemies"]]
+collision_layer = 32
+motion_mode = 1
+script = ExtResource("1_p7fin")
+projectile_scene = ExtResource("5_fn4hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1665455150]
+position = Vector2(-3, 7)
+shape = SubResource("CircleShape2D_l48v4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=298457368]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0xsp2")
+animation = &"attack"
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1473804237]
+script = ExtResource("6_oawfk")
+metadata/_custom_type_script = "uid://dqqepvvj26hg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1479816686]
+position = Vector2(-2, 6)
+shape = SubResource("RectangleShape2D_0xsp2")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=580536443]
+position = Vector2(5, 8)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=107431496]
+wait_time = 2.5
+autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=893671305]
+target_position = Vector2(0, 0)

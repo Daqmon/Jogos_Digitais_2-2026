@@ -13,6 +13,6 @@ func take_damage( attack_area : AttackArea ) -> void:
 		pass
 		
 func make_invunerable( duration : float = 1.0 ) -> void:
-	monitorable = false
+	set_deferred("monitorable", false)
 	await get_tree().create_timer( duration ).timeout
-	monitorable = true
+	set_deferred( "monitorable", true )

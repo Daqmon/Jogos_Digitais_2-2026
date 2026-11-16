@@ -134,6 +134,9 @@ func update_direction() -> void:
 	var y_axis = Input.get_axis( "up", "down" )
 	direction = Vector2(x_axis, y_axis)
 	
+	if current_state is PlayerStateAttack:
+		return
+	
 	if prev_direction.x != direction.x:
 		attack_area.flip( direction.x )
 		if direction.x < 0:

@@ -2,6 +2,7 @@
 class_name AttackArea extends Area2D
 
 @export var damage : int = 1
+var _activation_id : int = 0
 
 func _ready() -> void:
 	body_entered.connect( _on_body_entered )
@@ -15,11 +16,16 @@ func _on_body_entered( body : Node2D ) -> void:
 		body.take_damage(self)
 
 func activate( duration : float = 0.1 ) -> void:
+	_activation_id += 1
+	var current_id := _activation_id
 	set_active()
 	await get_tree().create_timer( duration ).timeout
-	set_active( false )
+	if _activation_id == current_id:
+		set_active( false )
 	
 func set_active( value : bool = true ) -> void:
+	if not value:
+		_activation_id += 1 # Cancels any pending timer from turning it off later
 	monitoring = value
 	visible = value
 	

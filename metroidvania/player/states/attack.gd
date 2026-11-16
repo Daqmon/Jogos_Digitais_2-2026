@@ -22,7 +22,8 @@ func exit() -> void:
 	player.animation_player.animation_finished.disconnect( _on_animation_finished )
 	next_state = null
 	attack_sprite_2d.visible = false
-	pass
+	player.attack_area.set_active(false)
+	pass 
 	
 func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed( "attack" ):
@@ -47,7 +48,8 @@ func _end_attack() -> void:
 		combo = wrapi( combo + 1, 0, attack_anims.size() )
 		do_attack()
 	else :
-		next_state = idle
+		next_state = idle if player.is_on_floor() else fall
 		
-func _on_animation_finished( _anim_name : String ) -> void:
-	_end_attack()
+func _on_animation_finished( anim_name : String ) -> void:
+	if anim_name == attack_anims[ combo ]:
+		_end_attack()
