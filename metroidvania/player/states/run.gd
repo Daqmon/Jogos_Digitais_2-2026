@@ -1,5 +1,7 @@
 class_name PlayerStateRun extends PlayerState
 
+@export var accel_time : float = 0.2
+
 func init() -> void:
 	pass
 	

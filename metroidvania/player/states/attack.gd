@@ -36,7 +36,10 @@ func process( delta : float ) -> PlayerState:
 	return next_state
 	
 func physics_process( _delta : float ) -> PlayerState:
-	player.velocity.x = player.direction.x * speed
+	if player.is_on_floor():
+		player.velocity.x = 0
+	else:
+		player.velocity.x = player.direction.x * speed
 	return null
 	
 func do_attack() -> void:

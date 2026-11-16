@@ -22,6 +22,7 @@ var current_state : PlayerState :
 var previous_state : PlayerState :
 	get : return states[ 1 ]
 	
+var facing_direction : float = 1.0
 var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980.0
 var gravity_multiplier : float = 1.0
@@ -128,23 +129,25 @@ func update_direction() -> void:
 	if health.is_dead():
 		direction = Vector2.ZERO
 		return
-	var prev_direction : Vector2 = direction
 	
 	var x_axis = Input.get_axis( "left", "right" )
 	var y_axis = Input.get_axis( "up", "down" )
 	direction = Vector2(x_axis, y_axis)
 	
+	# Lock facing direction during the entire combo
 	if current_state is PlayerStateAttack:
 		return
 	
-	if prev_direction.x != direction.x:
-		attack_area.flip( direction.x )
-		if direction.x < 0:
-			sprite_2d.flip_h = true
-			attack_sprite_2d.flip_h = true
-			attack_sprite_2d.position.x = -24
-		elif direction.x > 0:
-			sprite_2d.flip_h = false
-			attack_sprite_2d.flip_h = false
-			attack_sprite_2d.position.x = 24
+	if direction.x < 0 and facing_direction != -1.0:
+		facing_direction = -1.0
+		attack_area.flip( -1.0 )
+		sprite_2d.flip_h = true
+		attack_sprite_2d.flip_h = true
+		attack_sprite_2d.position.x = -24
+	elif direction.x > 0 and facing_direction != 1.0:
+		facing_direction = 1.0
+		attack_area.flip( 1.0 )
+		sprite_2d.flip_h = false
+		attack_sprite_2d.flip_h = false
+		attack_sprite_2d.position.x = 24
 	
