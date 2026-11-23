@@ -8,11 +8,11 @@ signal damage_taken( attack_area )
 func take_damage( attack_area : AttackArea ) -> void:
 	damage_taken.emit( attack_area )
 	if audio:
-		# To be implemented...
+		# to be implemented
 		#Audio.play_spatial_sound( audio, global_position )
 		pass
 		
 func make_invunerable( duration : float = 1.0 ) -> void:
 	set_deferred("monitorable", false)
-	await get_tree().create_timer( duration ).timeout
+	await get_tree().create_timer( duration, false ).timeout
 	set_deferred( "monitorable", true )

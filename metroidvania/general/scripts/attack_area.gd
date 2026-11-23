@@ -19,13 +19,13 @@ func activate( duration : float = 0.1 ) -> void:
 	_activation_id += 1
 	var current_id := _activation_id
 	set_active()
-	await get_tree().create_timer( duration ).timeout
+	await get_tree().create_timer( duration, false ).timeout
 	if _activation_id == current_id:
 		set_active( false )
 	
 func set_active( value : bool = true ) -> void:
 	if not value:
-		_activation_id += 1 # Cancels any pending timer from turning it off later
+		_activation_id += 1
 	monitoring = value
 	visible = value
 	

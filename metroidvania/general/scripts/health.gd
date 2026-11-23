@@ -1,11 +1,6 @@
 @icon( "res://general/icons/damage_area.svg" )
 class_name Health extends Node
 
-# Reusable health component. Anything that needs hit points (player, enemies,
-# breakables...) can have a Health node as child.
-# It only knows about numbers, who takes the damage is decided by the owner,
-# usually through a DamageArea (see damage_area.gd).
-
 signal health_changed( current : int, maximum : int )
 signal damaged( amount : int )
 signal healed( amount : int )

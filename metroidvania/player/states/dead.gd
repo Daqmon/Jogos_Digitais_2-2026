@@ -12,7 +12,7 @@ func enter() -> void:
 	player.animation_player.pause()
 	player.sprite_2d.modulate = Color( 0.5, 0.5, 0.5 )
 	
-	await player.get_tree().create_timer( restart_delay ).timeout
+	await player.get_tree().create_timer( restart_delay, false ).timeout
 	if player.current_state != self:
 		return
 	can_restart = true

@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://p0mya2cmisn5" path="res://general/scripts/health.gd" id="15_health"]
 [ext_resource type="Script" uid="uid://dqqepvvj26hg" path="res://general/scripts/damage_area.gd" id="16_damage"]
 [ext_resource type="PackedScene" path="res://hud/hud.tscn" id="17_hud"]
+[ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="18_pause"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fjfn"]
 size = Vector2(16, 45)
@@ -737,4 +738,7 @@ shape = SubResource("RectangleShape2D_hurtbox")
 debug_color = Color(0.2, 0.8, 0.3, 0.4)
 
 [node name="HUD" parent="." unique_id=2058831770 instance=ExtResource("17_hud")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("18_pause")]
 unique_name_in_owner = true

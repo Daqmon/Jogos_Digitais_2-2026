@@ -11,6 +11,7 @@ class_name Player extends CharacterBody2D
 @onready var health: Health = %Health
 @onready var damage_area: DamageArea = %DamageArea
 @onready var hud: HUD = %HUD
+@onready var pause_menu: PauseMenu = %PauseMenu
 
 @export var move_speed : float = 100
 @export var max_fall_velocity : float = 600.0
@@ -93,6 +94,7 @@ func _on_damage_taken( attack_area : AttackArea ) -> void:
 	_blink( invulnerability_time )
 
 func _on_died() -> void:
+	pause_menu.enabled = false
 	damage_area.set_deferred( "monitorable", false )
 	if blink_tween:
 		blink_tween.kill()
@@ -124,7 +126,6 @@ func _debug_attack() -> AttackArea:
 	a.damage = 1
 	return a
 
-# This treatment is done outside of _unhandled_input because it needs constant checking
 func update_direction() -> void:
 	if health.is_dead():
 		direction = Vector2.ZERO

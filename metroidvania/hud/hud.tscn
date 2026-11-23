@@ -1,12 +1,27 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://biai5vqoeobcw"]
 
-[ext_resource type="Script" path="res://hud/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://bj6cms55sbkvk" path="res://hud/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" uid="uid://cqa1n6ej4l0h2" path="res://hud/sprites/hud_skull.png" id="2_skull"]
+[ext_resource type="Theme" uid="uid://dtu6aor7cgwce" path="res://ui/theme/game_theme.tres" id="3_theme"]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_status"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.04, 0.02, 0.08, 0.72)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.22, 0.55, 1)
+anti_aliasing = false
+
+[node name="HUD" type="CanvasLayer" unique_id=1799833953]
 layer = 10
 script = ExtResource("1_hud")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=220866340]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,19 +33,47 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TopLeft" type="VBoxContainer" parent="Margin"]
+[node name="TopLeft" type="VBoxContainer" parent="Margin" unique_id=117402204]
 layout_mode = 2
-mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="HeartsContainer" type="HBoxContainer" parent="Margin/TopLeft"]
+[node name="StatusPanel" type="PanelContainer" parent="Margin/TopLeft" unique_id=1591366013]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_status")
+
+[node name="Row" type="HBoxContainer" parent="Margin/TopLeft/StatusPanel" unique_id=829545392]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="SkullIcon" type="TextureRect" parent="Margin/TopLeft/StatusPanel/Row" unique_id=1985925427]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_skull")
+stretch_mode = 2
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Margin/TopLeft/StatusPanel/Row" unique_id=766595450]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 3
 
-[node name="GameOver" type="Control" parent="."]
+[node name="Fx" type="Control" parent="." unique_id=430440695]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameOver" type="Control" parent="." unique_id=742909301]
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
@@ -40,8 +83,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("3_theme")
 
-[node name="Dim" type="ColorRect" parent="GameOver"]
+[node name="Dim" type="ColorRect" parent="GameOver" unique_id=1463985544]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,9 +93,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.65)
+color = Color(0.02, 0.01, 0.05, 0.75)
 
-[node name="Center" type="CenterContainer" parent="GameOver"]
+[node name="Center" type="CenterContainer" parent="GameOver" unique_id=827455987]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,21 +104,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBox" type="VBoxContainer" parent="GameOver/Center"]
+[node name="VBox" type="VBoxContainer" parent="GameOver/Center" unique_id=213640484]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="GameOver/Center/VBox"]
+[node name="Title" type="Label" parent="GameOver/Center/VBox" unique_id=1479940661]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.15, 0.2, 1)
+theme_override_colors/font_color = Color(0.84, 0.16, 0.22, 1)
+theme_override_colors/font_shadow_color = Color(0.47, 0.08, 0.16, 1)
+theme_override_colors/font_outline_color = Color(0.063, 0.04, 0.094, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 24
 text = "VOCÊ MORREU"
 horizontal_alignment = 1
 
-[node name="RestartPrompt" type="Label" parent="GameOver/Center/VBox"]
+[node name="RestartPrompt" type="Label" parent="GameOver/Center/VBox" unique_id=31737932]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = "Pressione J para tentar de novo"
 horizontal_alignment = 1

@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://bmbyf0dkfa87p"]
+
+[ext_resource type="Script" uid="uid://dpxwhjttg0yos" path="res://levels/00_school/decor/decor_flicker.gd" id="1_flicker"]
+[ext_resource type="Texture2D" uid="uid://bnyw1jck2u0vf" path="res://levels/00_school/decor/sprites/grime.png" id="3_grime"]
+[ext_resource type="Texture2D" uid="uid://1q180j05t45v" path="res://levels/00_school/decor/sprites/floor_shadow.png" id="4_floor_shadow"]
+[ext_resource type="Texture2D" uid="uid://rqf757tipgxy" path="res://levels/00_school/decor/sprites/ceiling.png" id="5_ceiling"]
+[ext_resource type="Texture2D" uid="uid://dl3an4vu87iot" path="res://levels/00_school/decor/sprites/trashcan.png" id="14_trashcan"]
+[ext_resource type="Texture2D" uid="uid://qfmau1igxedy" path="res://levels/00_school/decor/sprites/backpack.png" id="15_backpack"]
+[ext_resource type="Texture2D" uid="uid://cnfffnicqp76i" path="res://levels/00_school/decor/sprites/papers.png" id="16_papers"]
+[ext_resource type="Texture2D" uid="uid://bakci88vebok8" path="res://levels/00_school/decor/sprites/lamp.png" id="17_lamp"]
+[ext_resource type="Texture2D" uid="uid://bfphm4fudwa6e" path="res://levels/00_school/decor/sprites/light_cone.png" id="18_light_cone"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0hpx"]
+load_path = "res://.godot/imported/seams.png-a7840941f687c765d3c43e3c1c21305d.ctex"
+
+[sub_resource type="Gradient" id="Gradient_topshade"]
+colors = PackedColorArray(0.04, 0.02, 0.1, 0.62, 0.04, 0.02, 0.1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_topshade"]
+gradient = SubResource("Gradient_topshade")
+width = 800
+height = 130
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_add"]
+blend_mode = 1
+
+[node name="Decor" type="Node2D" unique_id=1205073406]
+
+[node name="WallSeams" type="Sprite2D" parent="." unique_id=779017197]
+texture_repeat = 2
+position = Vector2(0, -32)
+texture = SubResource("CompressedTexture2D_h0hpx")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 736, 160)
+
+[node name="Grime1" type="Sprite2D" parent="." unique_id=1962299460]
+position = Vector2(150, -32)
+texture = ExtResource("3_grime")
+centered = false
+
+[node name="Grime2" type="Sprite2D" parent="." unique_id=1053050563]
+position = Vector2(520, -32)
+texture = ExtResource("3_grime")
+centered = false
+
+[node name="Grime3" type="Sprite2D" parent="." unique_id=1201925553]
+position = Vector2(690, -32)
+texture = ExtResource("3_grime")
+centered = false
+
+[node name="TopShade" type="Sprite2D" parent="." unique_id=740457584]
+position = Vector2(-32, -32)
+texture = SubResource("GradientTexture2D_topshade")
+centered = false
+
+[node name="FloorShade" type="Sprite2D" parent="." unique_id=1784290997]
+position = Vector2(0, 184)
+scale = Vector2(92, 1)
+texture = ExtResource("4_floor_shadow")
+centered = false
+
+[node name="Ceiling" type="Sprite2D" parent="." unique_id=1787114023]
+texture_repeat = 2
+position = Vector2(-32, -22)
+texture = ExtResource("5_ceiling")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 18)
+
+[node name="Trashcan" type="Sprite2D" parent="." unique_id=590426463]
+position = Vector2(198, 202)
+texture = ExtResource("14_trashcan")
+centered = false
+
+[node name="Backpack" type="Sprite2D" parent="." unique_id=612695212]
+position = Vector2(394, 206)
+texture = ExtResource("15_backpack")
+centered = false
+
+[node name="Papers1" type="Sprite2D" parent="." unique_id=684793549]
+position = Vector2(100, 216)
+texture = ExtResource("16_papers")
+centered = false
+
+[node name="Papers2" type="Sprite2D" parent="." unique_id=393758419]
+position = Vector2(482, 216)
+texture = ExtResource("16_papers")
+centered = false
+flip_h = true
+
+[node name="Papers3" type="Sprite2D" parent="." unique_id=1659851397]
+position = Vector2(250, 217)
+texture = ExtResource("16_papers")
+centered = false
+
+[node name="Lamp1" type="Sprite2D" parent="." unique_id=1678712536]
+position = Vector2(56, -8)
+texture = ExtResource("17_lamp")
+centered = false
+
+[node name="Lamp2" type="Sprite2D" parent="." unique_id=676978605]
+position = Vector2(232, -8)
+texture = ExtResource("17_lamp")
+centered = false
+
+[node name="Lamp3" type="Sprite2D" parent="." unique_id=1871047516]
+position = Vector2(408, -8)
+texture = ExtResource("17_lamp")
+centered = false
+
+[node name="Lamp4" type="Sprite2D" parent="." unique_id=88149395]
+position = Vector2(584, -8)
+texture = ExtResource("17_lamp")
+centered = false
+
+[node name="Light1" type="Sprite2D" parent="." unique_id=177264254]
+material = SubResource("CanvasItemMaterial_add")
+position = Vector2(38, 4)
+texture = ExtResource("18_light_cone")
+centered = false
+
+[node name="Light2" type="Sprite2D" parent="." unique_id=1310796671]
+material = SubResource("CanvasItemMaterial_add")
+position = Vector2(214, 4)
+texture = ExtResource("18_light_cone")
+centered = false
+
+[node name="Light3" type="Sprite2D" parent="." unique_id=1609282987]
+material = SubResource("CanvasItemMaterial_add")
+position = Vector2(390, 4)
+texture = ExtResource("18_light_cone")
+centered = false
+script = ExtResource("1_flicker")
+
+[node name="Light4" type="Sprite2D" parent="." unique_id=1876185312]
+material = SubResource("CanvasItemMaterial_add")
+position = Vector2(566, 4)
+texture = ExtResource("18_light_cone")
+centered = false

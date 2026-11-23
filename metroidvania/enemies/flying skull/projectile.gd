@@ -11,7 +11,7 @@ var bounces := 0
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("bulletAnimation")
-	get_tree().create_timer(lifetime).timeout.connect(queue_free)
+	get_tree().create_timer(lifetime, false).timeout.connect(queue_free)
 	
 	# Enable the AttackArea hitbox and destroy bullet when it hits the player
 	attack_area.monitoring = true

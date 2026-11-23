@@ -1,0 +1,83 @@
+[gd_resource type="Theme" format=3 uid="uid://dtu6aor7cgwce"]
+
+[ext_resource type="FontFile" uid="uid://dupqf1wyjjrlp" path="res://ui/fonts/PressStart2P-Regular.ttf" id="1_font"]
+
+[sub_resource type="StyleBoxFlat" id="btn_normal"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.055, 0.03, 0.1, 0.78)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.36, 0.2, 0.46, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="btn_hover"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.47, 0.08, 0.16, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.84, 0.16, 0.22, 1)
+shadow_color = Color(0.84, 0.16, 0.22, 0.35)
+shadow_size = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="btn_pressed"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.3, 0.05, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.93, 0.78, 0.31, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="sep_style"]
+content_margin_top = 2.0
+bg_color = Color(0.36, 0.2, 0.46, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="panel_style"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.04, 0.02, 0.08, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.84, 0.16, 0.22, 1)
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 4
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_font")
+default_font_size = 8
+Button/colors/font_color = Color(0.82, 0.76, 0.86, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.93, 0.78, 0.31, 1)
+Button/colors/font_pressed_color = Color(0.93, 0.78, 0.31, 1)
+Button/styles/disabled = SubResource("btn_normal")
+Button/styles/focus = SubResource("btn_hover")
+Button/styles/hover = SubResource("btn_hover")
+Button/styles/hover_pressed = SubResource("btn_pressed")
+Button/styles/normal = SubResource("btn_normal")
+Button/styles/pressed = SubResource("btn_pressed")
+HSeparator/constants/separation = 2
+HSeparator/styles/separator = SubResource("sep_style")
+Label/colors/font_color = Color(0.91, 0.88, 0.8, 1)
+PanelContainer/styles/panel = SubResource("panel_style")
