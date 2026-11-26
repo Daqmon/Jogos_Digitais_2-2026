@@ -136,7 +136,7 @@ func update_direction() -> void:
 	direction = Vector2(x_axis, y_axis)
 	
 	# Lock facing direction during the entire combo
-	if current_state is PlayerStateAttack:
+	if current_state is PlayerStateAttack or current_state is PlayerStateJumpAttack or current_state is PlayerStateDash:
 		return
 	
 	if direction.x < 0 and facing_direction != -1.0:

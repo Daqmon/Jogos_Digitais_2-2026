@@ -17,6 +17,8 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 		return attack
 	elif _event.is_action_pressed( "jump" ):
 		return jump
+	if _event.is_action_pressed( "dash" ) and dash.can_dash():
+		return dash
 	return next_state
 	
 func process( _delta : float ) -> PlayerState:

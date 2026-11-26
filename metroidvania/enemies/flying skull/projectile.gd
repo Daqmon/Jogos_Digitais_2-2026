@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed := 180.0
-@export var max_bounces := 1
+@export var speed := 260.0
+@export var max_bounces := 2
 @export var lifetime := 5.0
 
 var direction := Vector2.RIGHT
