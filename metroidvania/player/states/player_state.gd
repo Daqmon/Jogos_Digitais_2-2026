@@ -7,6 +7,7 @@ var next_state: PlayerState
 @onready var run : PlayerStateRun = %Run
 @onready var jump : PlayerStateJump = %Jump
 @onready var fall : PlayerStateFall = %Fall
+@onready var stun : PlayerStateStun = %Stun
 @onready var crouch : PlayerStateCrouch = %Crouch
 @onready var attack: PlayerStateAttack = %Attack
 @onready var jump_attack : PlayerState = %JumpAttack

@@ -2,7 +2,7 @@ class_name PlayerStateDash extends PlayerState
 
 @export var dash_speed : float = 400.0
 @export var dash_duration : float = 0.20
-@export var dash_cooldown : float = 0.4
+@export var dash_cooldown : float = 0.25
 
 var timer : float = 0.0
 var cooldown_timer : float = 0.0

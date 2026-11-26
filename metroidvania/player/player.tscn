@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://xfejb71n1c8c" path="res://player/states/jump_attack.gd" id="9_c35mf"]
 [ext_resource type="Script" uid="uid://cecpvbws8h2uu" path="res://player/states/dash.gd" id="10_65viv"]
 [ext_resource type="Texture2D" uid="uid://b0pk4yrox2gba" path="res://player/sprites/mc_run-Sheet01.png" id="11_ebec5"]
+[ext_resource type="Script" uid="uid://cevp5jqmuinnn" path="res://player/stun.gd" id="11_x7c3f"]
 [ext_resource type="Texture2D" uid="uid://drqtybxpgj6pl" path="res://player/sprites/dash-Sheet.png" id="12_c35mf"]
 [ext_resource type="Script" uid="uid://cf81mlf4ftytp" path="res://player/states/dead.gd" id="14_dead"]
 [ext_resource type="Script" uid="uid://p0mya2cmisn5" path="res://general/scripts/health.gd" id="15_health"]
@@ -333,7 +334,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_kb6p2"]
 resource_name = "attack_3"
-length = 0.4
+length = 0.3
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -378,10 +379,10 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.099999994, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [17, 18, 19, 21]
+"values": [17, 18, 19]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -839,6 +840,10 @@ script = ExtResource("9_c35mf")
 [node name="Dash" type="Node" parent="States" unique_id=1368094936]
 unique_name_in_owner = true
 script = ExtResource("10_65viv")
+
+[node name="Stun" type="Node" parent="States" unique_id=1983447507]
+unique_name_in_owner = true
+script = ExtResource("11_x7c3f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1760834097]
 position = Vector2(0, -39)

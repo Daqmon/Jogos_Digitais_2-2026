@@ -1,6 +1,6 @@
 class_name PlayerStateAttack extends PlayerState
 
-@export var combo_time_window : float = 0.2
+@export var combo_time_window : float = 0.20
 @export var speed : float = 75.0
 var timer : float = 0
 var combo : int = 0

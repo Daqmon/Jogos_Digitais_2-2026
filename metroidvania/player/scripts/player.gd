@@ -10,6 +10,7 @@ class_name Player extends CharacterBody2D
 @onready var attack_area: AttackArea = %AttackArea
 @onready var health: Health = %Health
 @onready var damage_area: DamageArea = %DamageArea
+@onready var stun_state : PlayerStateStun = %Stun
 @onready var hud: HUD = %HUD
 @onready var pause_menu: PauseMenu = %PauseMenu
 
@@ -91,6 +92,12 @@ func _on_damage_taken( attack_area : AttackArea ) -> void:
 	if health.is_dead():
 		return
 	damage_area.make_invunerable( invulnerability_time )
+		# Knock back away from whatever hit us, then stun.
+	var dir := signf( global_position.x - attack_area.global_position.x )
+	if dir == 0.0:
+		dir = 1.0
+	stun_state.knockback_dir = dir
+	change_state( stun_state )
 	_blink( invulnerability_time )
 
 func _on_died() -> void:
