@@ -68,8 +68,18 @@ var state_time := 0.0
 var leap_timer := 0.0
 var melee_timer := 0.0
 
+var mirror_nodes: Array[Node2D] = []
+var mirror_base_x: Array[float] = []
+
 
 func _ready() -> void:
+	for area in [attack_hitbox, contact_area, hurtbox]:
+		mirror_nodes.append(area)
+		for child in area.get_children():
+			if child is CollisionShape2D:
+				mirror_nodes.append(child)
+	for n in mirror_nodes:
+		mirror_base_x.append(n.position.x)
 	health = max_health
 	player = get_tree().get_first_node_in_group("player")
 	attack_hitbox.damage = melee_damage
@@ -227,7 +237,9 @@ func _face(dir: float) -> void:
 		return
 	facing = int(dir)
 	anim.flip_h = (facing < 0) if art_faces_right else (facing > 0)
-	attack_hitbox.position.x = absf(attack_hitbox.position.x) * facing
+	var side := -1.0 if anim.flip_h else 1.0
+	for i in mirror_nodes.size():
+		mirror_nodes[i].position.x = mirror_base_x[i] * side
 
 
 func _play(anim_name: String) -> void:
