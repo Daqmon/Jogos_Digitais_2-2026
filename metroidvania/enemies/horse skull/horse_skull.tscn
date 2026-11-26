@@ -265,7 +265,7 @@ size = Vector2(60, 34)
 size = Vector2(51, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okdsb"]
-size = Vector2(53, 28)
+size = Vector2(46, 28)
 
 [node name="HorseSkull" type="CharacterBody2D" unique_id=1175610914]
 collision_layer = 32
@@ -309,5 +309,5 @@ script = ExtResource("6_cihm3")
 metadata/_custom_type_script = "uid://dfxiyvst84wql"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=897371629]
-position = Vector2(8.5, 14)
+position = Vector2(5, 14)
 shape = SubResource("RectangleShape2D_okdsb")
