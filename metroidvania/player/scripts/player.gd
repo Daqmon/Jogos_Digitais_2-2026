@@ -14,7 +14,7 @@ class_name Player extends CharacterBody2D
 @onready var hud: HUD = %HUD
 @onready var pause_menu: PauseMenu = %PauseMenu
 
-@export var move_speed : float = 130
+@export var move_speed : float = 160
 @export var max_fall_velocity : float = 600.0
 @export var invulnerability_time : float = 1.0
 

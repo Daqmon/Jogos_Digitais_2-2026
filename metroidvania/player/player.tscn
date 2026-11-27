@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cevp5jqmuinnn" path="res://player/stun.gd" id="11_x7c3f"]
 [ext_resource type="Texture2D" uid="uid://drqtybxpgj6pl" path="res://player/sprites/dash-Sheet.png" id="12_c35mf"]
 [ext_resource type="Script" uid="uid://cf81mlf4ftytp" path="res://player/states/dead.gd" id="14_dead"]
+[ext_resource type="Texture2D" uid="uid://c1dcdlpas8j3i" path="res://player/sprites/mc_hurt.png" id="15_bjvpn"]
 [ext_resource type="Script" uid="uid://p0mya2cmisn5" path="res://general/scripts/health.gd" id="15_health"]
 [ext_resource type="Script" uid="uid://dqqepvvj26hg" path="res://general/scripts/damage_area.gd" id="16_damage"]
 [ext_resource type="PackedScene" uid="uid://biai5vqoeobcw" path="res://hud/hud.tscn" id="17_hud"]
@@ -539,6 +540,58 @@ tracks/3/keys = {
 "values": [1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_s7qer"]
+resource_name = "hurt"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_bjvpn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_rgyib"]
 resource_name = "Idle"
 length = 1.1
@@ -783,6 +836,7 @@ _data = {
 &"attack_3": SubResource("Animation_kb6p2"),
 &"crouch": SubResource("Animation_boad6"),
 &"dash": SubResource("Animation_65viv"),
+&"hurt": SubResource("Animation_s7qer"),
 &"idle": SubResource("Animation_rgyib"),
 &"jump": SubResource("Animation_hg6s5"),
 &"jump_attack": SubResource("Animation_tqiix"),
@@ -849,7 +903,6 @@ script = ExtResource("11_x7c3f")
 position = Vector2(0, -39)
 texture = ExtResource("8_ebec5")
 hframes = 14
-frame = 2
 
 [node name="AttackSprite2D" type="Sprite2D" parent="Sprite2D" unique_id=608616105]
 unique_name_in_owner = true
