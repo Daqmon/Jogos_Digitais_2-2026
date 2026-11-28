@@ -14,6 +14,8 @@ func _ready() -> void:
 	controls_panel.closed.connect( _on_controls_closed )
 
 func _unhandled_input( event: InputEvent ) -> void:
+	if DialogueManager.is_active:
+		return
 	if not enabled or not event.is_action_pressed( "pause" ):
 		return
 	get_viewport().set_input_as_handled()

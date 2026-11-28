@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dxaleorj6d43s"]
+
+[ext_resource type="Script" uid="uid://bit5akcppi15x" path="res://npcs/rival/rival.gd" id="1_2ci7j"]
+[ext_resource type="Texture2D" uid="uid://cgbjiyf8kntkp" path="res://npcs/rival/sprites/rivalSprite.png" id="1_volge"]
+[ext_resource type="Texture2D" uid="uid://dswhc613rvutk" path="res://npcs/rival/sprites/Rival-portrait.png" id="2_5qro4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsp2"]
+size = Vector2(87.75, 64.25)
+
+[node name="Rival" type="Node2D" unique_id=1016025582]
+script = ExtResource("1_2ci7j")
+portrait = ExtResource("2_5qro4")
+dialogue_lines = Array[String](["Aperte J para atacar", "Aperte K para pular", "Aperte L para desviar"])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1786167221]
+texture = ExtResource("1_volge")
+
+[node name="TriggerZone" type="Area2D" parent="." unique_id=1661546479]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" unique_id=823211427]
+shape = SubResource("RectangleShape2D_0xsp2")

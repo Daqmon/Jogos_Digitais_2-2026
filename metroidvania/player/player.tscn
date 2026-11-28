@@ -849,6 +849,8 @@ size = Vector2(42.69207, 53.448013)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hurtbox"]
 size = Vector2(14, 42)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xsp2"]
+
 [node name="Player" type="CharacterBody2D" unique_id=1800775826 groups=["player"]]
 z_index = 1
 collision_layer = 16
@@ -903,6 +905,7 @@ script = ExtResource("11_x7c3f")
 position = Vector2(0, -39)
 texture = ExtResource("8_ebec5")
 hframes = 14
+frame = 2
 
 [node name="AttackSprite2D" type="Sprite2D" parent="Sprite2D" unique_id=608616105]
 unique_name_in_owner = true
@@ -981,3 +984,10 @@ unique_name_in_owner = true
 
 [node name="PauseMenu" parent="." unique_id=233646764 instance=ExtResource("18_pause")]
 unique_name_in_owner = true
+
+[node name="InteractionBox" type="Area2D" parent="." unique_id=693679286]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox" unique_id=1680207849]
+position = Vector2(-3, -22)
+scale = Vector2(2.87, 2.87)
+shape = SubResource("CircleShape2D_0xsp2")

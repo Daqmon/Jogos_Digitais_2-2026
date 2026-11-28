@@ -3,7 +3,8 @@
 [ext_resource type="TileSet" uid="uid://b8qt4r83mpkup" path="res://levels/tilesets/school.tres" id="1_ka5bn"]
 [ext_resource type="PackedScene" uid="uid://dd0te187ig2kn" path="res://player/player.tscn" id="2_70d84"]
 [ext_resource type="Script" uid="uid://cax6h4e3s120g" path="res://general/scripts/level_bounds.gd" id="3_6popj"]
-[ext_resource type="PackedScene" uid="uid://cb7187calto1q" path="res://enemies/flying skull/flying_skull.tscn" id="4_7eg1y"]
+[ext_resource type="PackedScene" uid="uid://dxaleorj6d43s" path="res://npcs/rival/rival.tscn" id="5_pes0c"]
+[ext_resource type="PackedScene" uid="uid://c0hhqf73sgx7m" path="res://dialogue/dialogue.tscn" id="6_ls6ie"]
 [ext_resource type="PackedScene" uid="uid://bmbyf0dkfa87p" path="res://levels/00_school/decor/classroom_decor.tscn" id="9_decor"]
 
 [node name="01" type="Node2D" unique_id=1553462891]
@@ -33,5 +34,7 @@ script = ExtResource("3_6popj")
 width = 800
 metadata/_custom_type_script = "uid://cax6h4e3s120g"
 
-[node name="flyingSkull" parent="." unique_id=289477857 instance=ExtResource("4_7eg1y")]
-position = Vector2(372, 127)
+[node name="Rival" parent="." unique_id=1016025582 instance=ExtResource("5_pes0c")]
+position = Vector2(291, 192)
+
+[node name="DialogueUI" parent="." unique_id=1249055951 instance=ExtResource("6_ls6ie")]

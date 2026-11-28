@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c0hhqf73sgx7m"]
+
+[ext_resource type="Texture2D" uid="uid://b22jb6x6yyb6r" path="res://dialogue/Dialogue Box.png" id="1_k0ki1"]
+[ext_resource type="Script" uid="uid://dnf5tc3cfs62f" path="res://dialogue/dialogue.gd" id="1_vigd0"]
+[ext_resource type="FontFile" uid="uid://xomqh2myqnmw" path="res://DotGothic16-Regular.ttf" id="3_mwwob"]
+
+[sub_resource type="FontVariation" id="FontVariation_ls6ie"]
+base_font = ExtResource("3_mwwob")
+spacing_glyph = 1
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=1249055951]
+process_mode = 3
+script = ExtResource("1_vigd0")
+
+[node name="Background" type="TextureRect" parent="." unique_id=967713380]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -96.0
+offset_right = 192.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_k0ki1")
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=2077404962]
+offset_left = 66.0
+offset_top = 192.0
+offset_right = 125.0
+offset_bottom = 252.0
+
+[node name="DialogueText" type="RichTextLabel" parent="." unique_id=1897856058]
+offset_left = 133.0
+offset_top = 194.0
+offset_right = 410.0
+offset_bottom = 251.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_ls6ie")
+theme_override_font_sizes/normal_font_size = 12
+scroll_active = false

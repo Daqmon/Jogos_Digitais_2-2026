@@ -13,6 +13,7 @@ class_name Player extends CharacterBody2D
 @onready var stun_state : PlayerStateStun = %Stun
 @onready var hud: HUD = %HUD
 @onready var pause_menu: PauseMenu = %PauseMenu
+@onready var interaction_box: Area2D = $InteractionBox
 
 @export var move_speed : float = 160
 @export var max_fall_velocity : float = 600.0
@@ -30,11 +31,17 @@ var gravity : float = 980.0
 var gravity_multiplier : float = 1.0
 var blink_tween : Tween
 
+var current_interactable : Node2D = null
+var interact_hold_time : float = 0.0
+const INTERACT_TIME_REQUIRED : float = 0.4 # How long to hold interact button (in seconds)
+
 func _ready() -> void:
 	initilize_states()
 	damage_area.damage_taken.connect( _on_damage_taken )
 	health.died.connect( _on_died )
 	hud.bind_health( health )
+	interaction_box.area_entered.connect(_on_interaction_box_area_entered)
+	interaction_box.area_exited.connect(_on_interaction_box_area_exited)
 
 # Runs everytime a button is pressed (and the input is not consumed by UI)
 func _unhandled_input(event: InputEvent) -> void:
@@ -46,6 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process( _delta: float ) -> void:
 	update_direction()
+	_handle_interaction( _delta )
 	change_state( current_state.process( _delta ) )
 
 func _physics_process( _delta: float ) -> void:
@@ -158,4 +166,33 @@ func update_direction() -> void:
 		sprite_2d.flip_h = false
 		attack_sprite_2d.flip_h = false
 		attack_sprite_2d.position.x = 24
+		
+# Checks if the player is holding the interact button near an NPC
+func _handle_interaction( delta : float ) -> void:
+	if current_interactable and Input.is_action_pressed( "up" ):
+		interact_hold_time += delta
+		if interact_hold_time >= INTERACT_TIME_REQUIRED:
+			current_interactable.interact()
+			# Clear the target to prevent rapid-fire triggering 
+			# (Requires the player to let go and re-enter the area to trigger again)
+			current_interactable = null 
+	else:
+		# Reset the timer if the player lets go of W early
+		interact_hold_time = 0.0
+
+# Triggered automatically when the InteractionBox hits another Area2D
+func _on_interaction_box_area_entered( area : Area2D ) -> void:
+	print("Something entered the interaction box!")
+	# Check if the node that owns this area has an "interact" function
+	var entity = area.owner if area.owner else area.get_parent()
+	if entity and entity.has_method( "interact" ):
+		print("Found an NPC with an interact method!")
+		current_interactable = entity
+
+# Triggered when the player walks away
+func _on_interaction_box_area_exited( area : Area2D ) -> void:
+	var entity = area.owner if area.owner else area.get_parent()
+	if entity == current_interactable:
+		current_interactable = null
+		interact_hold_time = 0.0
 	
